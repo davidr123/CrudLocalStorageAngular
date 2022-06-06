@@ -1,0 +1,24 @@
+.contact-form{
+    --form-ok-color: #4caf50;
+    --form-error-color: #f44B36;
+   margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    margin-top: 80px;
+   }
+
+   .contact-form> *{
+    padding: 0.5rem;
+    margin: 1rem auto;
+    display: block;
+    width: 100%;
+   }
+
+.contact-form [required]:valid{
+border: thin solid var(--form-ok-color);
+}
+
+.contact-form [required]:invalid{
+border: thin solid var(--form-error-color);
+
+}

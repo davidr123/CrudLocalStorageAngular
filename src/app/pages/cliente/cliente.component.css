@@ -1,0 +1,30 @@
+.main{
+  
+    
+}
+
+.filter{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: flex-basis; */
+    margin-left: 20rem;
+   margin-right: auto;
+     margin-top: 2rem;
+}
+
+.table-form{
+  
+
+  margin-top: 7rem;
+
+  margin-right: 5rem;
+  text-align: center;
+  /* margin-left: 1rem; */
+
+}
+
+.form-contact{
+    display: flex;
+    flex-direction: column;
+}
+

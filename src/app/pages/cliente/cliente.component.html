@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <main class="main">
+        
+        <section class="filter">
+
+            <h3>Filtro</h3>
+            <input type="search" placeholder="Buscar Cliente..." 
+            [(ngModel)]="filterPost"
+            name="filterPost">
+            <button class="btn btn-success"  type="button"
+            data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="clickCLiente()"> Crear</button>
+        </section>
+       
+
+
+            <!-- Table -->
+<section class="table-form">
+    <table class="table">
+        <thead>
+          <tr>
+          
+
+            <th scope="col">Cedula</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Dirccion</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Acciones</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cli of getclient | filter:filterPost">
+            <td>{{cli.id}}</td>
+            
+            <td>{{cli.cedula}}</td>
+            <td>{{cli.nombre}}</td>
+            <td>{{cli.apellido}}</td>
+            <td>{{cli.direccion}}</td>
+            <td>{{cli.telefono}}</td>
+            <td>
+                <button class="btn btn-primary" type="button"
+                data-bs-toggle="modal" data-bs-target="#exampleModal"
+                (click)="editClinent(cli)" >Edit</button>
+                <button class="btn btn-danger" (click)="deleteCliente(cli.id)">Eliminar</button>
+            </td>
+
+          </tr>
+ 
+        </tbody>
+      </table>
+</section>
+           
+       
+     
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Agregar Cliente</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form class="form-contact"
+            [formGroup]="formCrear">
+            <label id="id">Id</label>
+            <input type="text" name="id" formControlName="id">
+                <label id="cedula">Cedula</label>
+                <input type="text" name="cedula" formControlName="cedula">
+                <label id="nombre">Nombres</label>
+                <input type="text" name="nombre" formControlName="nombre" >
+                <label id="apellido">Apellidos</label>
+                <input type="text" name="apellido" formControlName="apellido" >
+                <label id="direccion">Direccion</label>
+                <input type="text" name="direccion" formControlName="direccion" >
+                <label id="telefono">Telefono</label>
+                <input type="tel" name="telefono" formControlName="telefono" >
+              
+                
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="close" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button *ngIf="showadd" type="button" class="btn btn-primary" (click)="createClient()"  >Agregar</button>
+          <button *ngIf="showupdate" type="button" class="btn btn-primary" (click)=" updateCliente()"  >Update</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+    </main>
+
+    
+</body>
+</html>
